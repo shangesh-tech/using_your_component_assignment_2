@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import PostCard from './components/postcard';
+import './App.css';
 
 function App() {
-
-  const initialPosts = [
+  const [posts, setPosts] = useState([
     {
       id: 1,
       profileImage: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
@@ -27,13 +25,23 @@ function App() {
       content: 'Just another day...',
       isLiked: false,
     },
-  ];
+  ]);
+
+  const toggleLike = (postId) => {
+    const updatedPosts = posts.map(post =>
+      post.id === postId ? { ...post, isLiked: !post.isLiked } : post
+    );
+    setPosts(updatedPosts);
+  };
 
   return (
-    <>
-      
-    </>
-  )
+    <div className="app">
+      <h1>Social Media Home</h1>
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} toggleLike={toggleLike} />
+      ))}
+    </div>
+  );
 }
 
-export default App
+export default App;

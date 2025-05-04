@@ -1,0 +1,30 @@
+.post-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  .post-content {
+    flex: 1;
+  }
+  
+  .post-content h3 {
+    margin: 0 0 5px;
+  }
+  
+  .post-content p {
+    margin: 5px 0 10px;
+  }
+  
